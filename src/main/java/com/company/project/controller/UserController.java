@@ -74,11 +74,11 @@ public class UserController {
     @ApiOperation(value = "用户登录接口")
     public LoginRespVO login(@RequestBody @Valid SysUser vo, HttpServletRequest request) {
         //判断验证码
-        if (!CaptchaUtil.ver(vo.getCaptcha(), request)) {
-            // 清除session中的验证码
-            CaptchaUtil.clear(request);
-            throw new BusinessException("验证码错误！");
-        }
+        // if (!CaptchaUtil.ver(vo.getCaptcha(), request)) {
+        //     // 清除session中的验证码
+        //     CaptchaUtil.clear(request);
+        //     throw new BusinessException("验证码错误！");
+        // }
         return userService.login(vo);
     }
 

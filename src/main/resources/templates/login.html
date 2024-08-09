@@ -15,7 +15,7 @@
         <div class="layui-form login-form">
             <form class="layui-form" action="">
                 <div class="layui-form-item logo-title">
-                    <h1>后台登录</h1>
+                    <h1>租房小程序后台登录</h1>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-icon layui-icon-username" name="username" ></label>
@@ -24,13 +24,6 @@
                 <div class="layui-form-item">
                     <label class="layui-icon layui-icon-password" name="password"></label>
                     <input type="password" name="password" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" value="123456">
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-vercode" name="captcha"></label>
-                    <input type="text" name="captcha" lay-verify="required|captcha" placeholder="图形验证码" autocomplete="off" class="layui-input verification captcha" value="">
-                    <div class="captcha-img">
-                        <img  onClick="this.src=this.src+'?'+Math.random();" id="img" class="admin-captcha" width="90" height="40" th:src="@{/sys/getVerify}">
-                    </div>
                 </div>
                 <div class="layui-form-item">
                     <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" lay-filter="login">登 入</button>
@@ -57,10 +50,6 @@
         // 进行登录操作
         form.on('submit(login)', function (data) {
             data = data.field;
-            if (data.captcha == '') {
-                layer.msg('请输入验证码');
-                return false;
-            }
             if (data.username == '') {
                 layer.msg('用户名不能为空');
                 return false;
